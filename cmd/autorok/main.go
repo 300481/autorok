@@ -25,5 +25,5 @@ func init() {
 }
 
 func main() {
-	autorok.NewAutorok(configUrl).Execute()
+	autorok.NewAutorok(configUrl).Serve()
 }
