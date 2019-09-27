@@ -26,7 +26,7 @@ func NewAutorok(configUrl string) *Autorok {
 		log.Fatalln(err)
 	}
 
-	templates, err := NewTemplates(config.TemplateSource)
+	templates, err := newTemplates(config.TemplateSource)
 	if err != nil {
 		log.Fatalln(err)
 	}
