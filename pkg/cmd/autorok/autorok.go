@@ -16,6 +16,7 @@ type Autorok struct {
 // NewAutorok returns a new autorok instance
 // configUrl must be the URL to the configuration file (YAML format)
 func NewAutorok(configUrl string) *Autorok {
+	// load configuration
 	config := Config{}
 	err := loadObject(
 		configUrl,
@@ -26,6 +27,7 @@ func NewAutorok(configUrl string) *Autorok {
 		log.Fatalln(err)
 	}
 
+	// load templates
 	templates, err := newTemplates(config.TemplateSource)
 	if err != nil {
 		log.Fatalln(err)
