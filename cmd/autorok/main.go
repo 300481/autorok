@@ -5,6 +5,8 @@ import (
 	"os"
 
 	"github.com/300481/autorok/pkg/cmd/autorok"
+
+	"github.com/urfave/cli"
 )
 
 const (
@@ -13,6 +15,7 @@ const (
 
 var (
 	configUrl string
+	app       = cli.NewApp()
 )
 
 func init() {
@@ -24,6 +27,33 @@ func init() {
 	}
 }
 
+func info() {
+	app.Name = "AutoROK"
+	app.Usage = "Deployment service for RancherOS based Kubernetes systems"
+	app.Author = "Dennis Riemenschneider"
+	app.Version = "0.1.0"
+}
+
+func commands() {
+	app.Commands = []cli.Command{
+		{
+			Name:    "server",
+			Aliases: []string{"s"},
+			Usage:   "Run in server mode",
+			Action: func(c *cli.Context) {
+				autorok.NewAutorok(configUrl).Serve()
+			},
+		},
+	}
+}
+
 func main() {
-	autorok.NewAutorok(configUrl).Serve()
+	info()
+	commands()
+
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatal(err)
+	}
+	//autorok.NewAutorok(configUrl).Serve()
 }
