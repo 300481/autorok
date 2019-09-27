@@ -39,8 +39,8 @@ func NewAutorok(configUrl string) *Autorok {
 	}
 }
 
-// Execute runs the application
-func (a *Autorok) Execute() {
+// Serve runs the application in server mode
+func (a *Autorok) Serve() {
 	// run dummy listener to daemonize
 	router := mux.NewRouter()
 	log.Fatal(http.ListenAndServe(":8080", router))
