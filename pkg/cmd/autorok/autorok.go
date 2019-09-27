@@ -16,11 +16,11 @@ type Autorok struct {
 // NewAutorok returns a new autorok instance
 // configUrl must be the URL to the configuration file (YAML format)
 func NewAutorok(configUrl string) *Autorok {
-	config := &Config{}
+	config := Config{}
 	err := loadObject(
 		configUrl,
 		YAML,
-		config,
+		&config,
 	)
 	if err != nil {
 		log.Fatalln(err)
@@ -32,13 +32,14 @@ func NewAutorok(configUrl string) *Autorok {
 	}
 
 	return &Autorok{
-		Config:    config,
+		Config:    &config,
 		Templates: templates,
 	}
 }
 
 // Execute runs the application
 func (a *Autorok) Execute() {
+	// run dummy listener to daemonize
 	router := mux.NewRouter()
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

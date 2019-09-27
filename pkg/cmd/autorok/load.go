@@ -57,9 +57,11 @@ func loadObject(url, format string, object interface{}) error {
 		return errors.New(wrongFormatError)
 	}
 
-	if err == nil {
-		log.Println("Load Object done")
+	if err != nil {
+		return err
 	}
 
-	return err
+	log.Println("Load Object done")
+
+	return nil
 }

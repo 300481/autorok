@@ -1,6 +1,6 @@
 package autorok
 
 type Config struct {
-	TemplateSource *TemplateSource `yaml:"templatesouce"`
-	Clustername    string          `yaml:"clustername"`
+	TemplateSource TemplateSource `yaml:"templatesource"`
+	Clustername    string         `yaml:"clustername"`
 }

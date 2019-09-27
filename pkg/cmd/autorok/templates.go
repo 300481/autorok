@@ -21,7 +21,7 @@ type TemplateSource struct {
 }
 
 // NewTemplates returns a new Templates instance
-func newTemplates(source *TemplateSource) (*Templates, error) {
+func newTemplates(source TemplateSource) (*Templates, error) {
 	ipxe, err := loadBytes(source.Ipxe)
 	if err != nil {
 		return nil, err
