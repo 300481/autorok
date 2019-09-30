@@ -4,6 +4,7 @@ import "log"
 
 type config struct {
 	TemplateSource templateSource `yaml:"templatesource"`
+	ClusterConfig  string         `yaml:"clusterconfig"`
 	BootServer     string         `yaml:"bootserver"`
 	ClusterName    string         `yaml:"clustername"`
 	NodeCount      int            `yaml:"nodecount"`

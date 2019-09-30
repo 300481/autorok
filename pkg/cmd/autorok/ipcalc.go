@@ -35,10 +35,13 @@ func ParseCIDR(s string) (*CIDR, error) {
 
 // Relative returns a new *CIDR with an IP address increased/decreased by r
 func (c *CIDR) Relative(r int) (*CIDR, error) {
-	cidr := *c
+	cidr, err := ParseCIDR(c.String())
+	if err != nil {
+		return nil, err
+	}
 
 	if r == 0 {
-		return &cidr, nil
+		return cidr, nil
 	}
 
 	increase := r > 0
@@ -63,7 +66,7 @@ func (c *CIDR) Relative(r int) (*CIDR, error) {
 	}
 
 	if cidr.Net.Contains(cidr.IP) {
-		return &cidr, nil
+		return cidr, nil
 	}
 
 	return nil, errors.New(ERROR_ADDR_NOT_IN_NETWORK)

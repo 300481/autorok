@@ -25,6 +25,18 @@ type cluster struct {
 }
 
 func (c *config) newCluster() *cluster {
+	// load ClusterConfig if available
+	if len(c.ClusterConfig) > 0 {
+		cluster := &cluster{}
+		err := loadObject(c.ClusterConfig, YAML, cluster)
+		if err != nil {
+			log.Println("Couldn't load cluster configuration.")
+			return nil
+		}
+		return cluster
+	}
+
+	// else create a new empty one
 	cidr, err := ParseCIDR(c.StartCIDR)
 	if err != nil {
 		log.Println(err)
