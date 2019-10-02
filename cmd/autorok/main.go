@@ -44,6 +44,14 @@ func commands() {
 				autorok.NewAutorok(configUrl).Serve()
 			},
 		},
+		{
+			Name:    "getrke",
+			Aliases: []string{"r"},
+			Usage:   "Writes the RKE cluster.yaml to stdout",
+			Action: func(c *cli.Context) {
+				autorok.NewAutorok(configUrl).GetRKE()
+			},
+		},
 	}
 }
 

@@ -3,6 +3,7 @@ package autorok
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
@@ -35,4 +36,9 @@ func (a *Autorok) Serve() {
 	// run dummy listener to daemonize
 	a.routes()
 	log.Fatal(http.ListenAndServe(":8080", a.Router))
+}
+
+// GetRKE writes the RKE config to stdout
+func (a *Autorok) GetRKE() {
+	a.Templates.RKE.Execute(os.Stdout, a.Cluster)
 }
