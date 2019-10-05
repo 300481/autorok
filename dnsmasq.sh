@@ -13,6 +13,4 @@ MIN_IP=$(sipcalc ${INTERFACE} | awk '/Usable range/ {print $4}')
   --log-queries \
   --log-dhcp \
   --no-daemon \
-  --port=0 \
-  --interface=${INTERFACE} \
-  --bind-interfaces
+  --port=0
