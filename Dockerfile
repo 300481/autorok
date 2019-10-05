@@ -19,7 +19,7 @@ RUN apk --no-cache add \
     mkdir /tftp && cd /tftp && \
     wget http://boot.ipxe.org/undionly.kpxe && \
     cp undionly.kpxe undionly.kpxe.0 && \
-    wget https://github.com/just-containers/s6-overlay/releases/download/v1.21.8.0/s6-overlay-amd64.tar.gz -O /tmp/s6-overlay.tar.gz && \
+    wget https://github.com/just-containers/s6-overlay/releases/download/v1.22.1.0/s6-overlay-amd64.tar.gz -O /tmp/s6-overlay.tar.gz && \
     tar xvzf /tmp/s6-overlay.tar.gz -C /
 
 COPY services.d/ /etc/services.d/

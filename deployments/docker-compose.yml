@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   autorok:
-    image: "300481/autorok:0.1.0"
+    image: "300481/autorok:0.1.1"
     restart: always
     cap_add:
       - NET_ADMIN
