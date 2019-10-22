@@ -13,11 +13,11 @@ docker-compose -f deployments/docker-compose.yml up [-d]
 
 ```yaml
 templatesource:
-  ipxe: "https://raw.githubusercontent.com/300481/autorok-systems/master/3c7a3ea5-a859-477a-84ae-b11cc8d35852/templates/ipxe"
-  boot: "https://raw.githubusercontent.com/300481/autorok-systems/master/3c7a3ea5-a859-477a-84ae-b11cc8d35852/templates/boot"
-  install: "https://raw.githubusercontent.com/300481/autorok-systems/master/3c7a3ea5-a859-477a-84ae-b11cc8d35852/templates/install"
-  rke: "https://raw.githubusercontent.com/300481/autorok-systems/master/3c7a3ea5-a859-477a-84ae-b11cc8d35852/templates/rke"
-clusterconfig: "https://raw.githubusercontent.com/300481/autorok-systems/master/3c7a3ea5-a859-477a-84ae-b11cc8d35852/cluster.yaml"
+  ipxe: "https://raw.githubusercontent.com/300481/autorok-systems/master/61ae9431-b480-4bf2-b6dd-ba7eaed7d3b9/templates/ipxe"
+  boot: "https://raw.githubusercontent.com/300481/autorok-systems/master/61ae9431-b480-4bf2-b6dd-ba7eaed7d3b9/templates/boot"
+  install: "https://raw.githubusercontent.com/300481/autorok-systems/master/61ae9431-b480-4bf2-b6dd-ba7eaed7d3b9/templates/install"
+  rke: "https://raw.githubusercontent.com/300481/autorok-systems/master/61ae9431-b480-4bf2-b6dd-ba7eaed7d3b9/templates/rke"
+clusterconfig: "https://raw.githubusercontent.com/300481/autorok-systems/master/61ae9431-b480-4bf2-b6dd-ba7eaed7d3b9/cluster.yaml"
 bootserver: 192.168.0.45
 clustername: cluster
 nodecount: 1
